@@ -13,16 +13,15 @@ const App = () => {
 	const onChange = (event, varname, id) => {
 		setNodes((nds) =>
 			nds.map((node) => {
-				console.log("DATA: ", varname, id);
-				let d = { ...node.data };
-				d[varname] = event.target.value;
-				console.log("D: ", d);
 				if (node.id === id) {
+					let d = { ...node.data };
+					d[varname] = event.target.value;
 					return {
 						...node,
 						data: d,
 					};
 				}
+				return node;
 			})
 		);
 	};
